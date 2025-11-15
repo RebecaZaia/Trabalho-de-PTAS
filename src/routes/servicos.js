@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { buscarServicos } from "../controllers/servicos.js";
+import { buscarServicos, buscarServicosPorId, addServicos, atualizarServicos } from "../controllers/servicos.js";
 const servicosRouter = Router()
 
 servicosRouter.get("/", buscarServicos)
