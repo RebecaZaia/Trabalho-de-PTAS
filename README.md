@@ -14,3 +14,6 @@ criar pasta src
     criar arquivo server.js
                   databases.js
                   teste.js
+                  pasta models
+                        routes
+                        controllers

@@ -1,12 +1,12 @@
 import express from "express"
 import mongoose from "mongoose"
+import { Servicos } from "./models/servicos"
+import { Clientes } from "./models/clientes"
+
 const app = express()
 app.use(express.json())
 
-app.get("/users", (req, res) =>{
-    console.log(req.query.userId)
-    res.end(`Buscar de usuários`)
-})
+app.use("/servicos", servicosRouter)
 
 app.get("/users/:id/:page", (req, res) =>{
     const {id} = req.params
