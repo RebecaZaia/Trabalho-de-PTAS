@@ -5,6 +5,7 @@ ctrl shift p -> git: clone -> colar o link
 terminal:
 npm init -y
 npm install express
+npm i mongoose
 
 package.json -> mudar para "type": "module"
                 adicionar "dev": "node --watch ./src/server.js"
