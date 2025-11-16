@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { buscarServicos, buscarServicosPorId, addServicos, atualizarServicos } from "../controllers/servicos.js";
+import servicos from "../controllers/servicos.js";
 const servicosRouter = Router()
 
-servicosRouter.get("/", buscarServicos)
-servicosRouter.get("/:id", buscarServicosPorId)
-servicosRouter.post("/", addServicos)
-servicosRouter.put("/:id", atualizarServicos)
+servicosRouter.get("/", servicos.buscarServicos)
+servicosRouter.get("/:id", servicos.buscarServicosPorId)
+servicosRouter.post("/", servicos.addServicosddServicos)
+servicosRouter.put("/:id", servicos.atualizarServicos)
 
 export {pratosRouter}
