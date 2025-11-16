@@ -7,4 +7,4 @@ servicosRouter.get("/:id", servicos.buscarServicosPorId)
 servicosRouter.post("/", servicos.addServicosddServicos)
 servicosRouter.put("/:id", servicos.atualizarServicos)
 
-export {pratosRouter}
+export {servicosRouterRouter}

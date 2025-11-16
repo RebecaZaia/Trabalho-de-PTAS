@@ -1,18 +1,18 @@
-import { Clientes } from "../models/clientes.js"
+import { Agendamentos } from "../models/agendamentos.js"
 
-class ClientesControllers{
-    buscarClientes = async (req, res) =>{
-        const respose = await Clientes.find()
+class AgendamentosControllers{
+    buscarAgendamentos = async (req, res) =>{
+        const respose = await Agendamentos.find()
         res.json(respose)
     }
 
-    buscarClientesPorId = async (req, res) =>{
+    buscarAgendamentosPorId = async (req, res) =>{
         const {id} = req.params
-        const respose = await Clientes.findById(id)
+        const respose = await Agendamentos.findById(id)
         res.json(respose)
     }
 
-    addClientes = async (req, res) =>{
+    addAgendamentos = async (req, res) =>{
         const {nome, preco} = req.body
         if (!nome || !preco){
             res.status(422).json({
@@ -21,14 +21,14 @@ class ClientesControllers{
             })
             return
         }
-        const cliente = new Clientes({
+        const agendamento = new Agendamentos({
             nome, preco
         })
-        cliente.save().then(
+        agendamento.save().then(
             () => res.status(201).json({
                 erro: false,
-                message: "Cliente criado com sucesso",
-                cliente: cliente
+                message: "Agendamento criado com sucesso",
+                agendamento: agendamento
         })).catch(err => {
             res.status(422).json({
                 erro: true,
@@ -37,10 +37,10 @@ class ClientesControllers{
         })
     }
 
-    atualizarClientes = async (req, res) =>{
+    atualizarAgendamentos = async (req, res) =>{
         const {id} = req.params
         const {nome, preco} = req.body
-        const response = await Clientes.findByIdAndUpdate(id, req.body)
+        const response = await Agendamentos.findByIdAndUpdate(id, req.body)
         if (response){
             res.json({
                 erro: false,
@@ -55,4 +55,4 @@ class ClientesControllers{
     }
 }
 
-export default new ClientesControllers()
+export default new AgendamentosControllers()

@@ -1,17 +1,17 @@
 import express from "express"
 import mongoose from "mongoose"
-import { Servicos } from "./models/servicos"
-import { Clientes } from "./models/clientes"
-
+import { servicosRouter } from "./routes/route_pratos.js"
+import { clientesRouter } from "./routes/clientes.js"
+import { atendentesRouter } from "./routes/atendentes.js"
+import { agendamentosRouter } from "./routes/agendamentos.js"
 const app = express()
+//CRUD -> Create, Read, Update, Delete
 app.use(express.json())
 
 app.use("/servicos", servicosRouter)
-
-app.get("/users/:id/:page", (req, res) =>{
-    const {id} = req.params
-    res.end(`Buscar de usuários com id ${id}`)
-})
+app.use("/clientes", clientesRouter)
+app.use("/atendentes", atendentesRouter)
+app.use("/agendamentos", agendamentosRouter)
 
 mongoose.connect("mongodb://localhost:27017/trabalho")
     .then(() => console.log("Conectado ao MongoDB"))
