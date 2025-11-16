@@ -1,6 +1,6 @@
 import express from "express"
 import mongoose from "mongoose"
-import { servicosRouter } from "./routes/route_pratos.js"
+import { servicosRouter } from "./routes/servicos.js"
 import { clientesRouter } from "./routes/clientes.js"
 import { atendentesRouter } from "./routes/atendentes.js"
 import { agendamentosRouter } from "./routes/agendamentos.js"

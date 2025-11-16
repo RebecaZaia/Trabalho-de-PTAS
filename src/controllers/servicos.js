@@ -53,6 +53,29 @@ class ServicosControllers{
             })
         }
     }
+
+    deletarServicos = async (req, res) => {
+        const { id } = req.params
+        try {
+            const response = await Servicos.findByIdAndDelete(id)
+            if (response) {
+                res.json({
+                    erro: false,
+                    message: "Servico deletado com sucesso"
+                })
+            } else {
+                res.status(404).json({
+                    erro: true,
+                    message: "Servico não encontrado"
+                })
+            }
+        } catch (err) {
+            res.status(422).json({
+                erro: true,
+                message: "Erro ao deletar Servico"
+            })
+        }
+    }
 }
 
 export default new ServicosControllers()

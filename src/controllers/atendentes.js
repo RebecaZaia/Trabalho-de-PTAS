@@ -53,6 +53,29 @@ class AtendentesControllers{
             })
         }
     }
+
+    deletarAtendentes = async (req, res) => {
+        const { id } = req.params
+        try {
+            const response = await Atendentes.findByIdAndDelete(id)
+            if (response) {
+                res.json({
+                    erro: false,
+                    message: "Atendente deletado com sucesso"
+                })
+            } else {
+                res.status(404).json({
+                    erro: true,
+                    message: "Atendente não encontrado"
+                })
+            }
+        } catch (err) {
+            res.status(422).json({
+                erro: true,
+                message: "Erro ao deletar atendente"
+            })
+        }
+    }
 }
 
 export default new AtendentesControllers()

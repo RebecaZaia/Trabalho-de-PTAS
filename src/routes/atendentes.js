@@ -2,9 +2,10 @@ import { Router } from "express";
 import atendentes from "../controllers/atendentes.js";
 const atendentesRouter = Router()
 
-servicosRouter.get("/", atendentes.buscarServicos)
-servicosRouter.get("/:id", atendentes.buscarServicosPorId)
-servicosRouter.post("/", atendentes.addServicosddServicos)
-servicosRouter.put("/:id", atendentes.atualizarServicos)
+atendentesRouter.get("/", atendentes.buscarAtendentes)
+atendentesRouter.get("/:id", atendentes.buscarAtendentesPorId)
+atendentesRouter.post("/", atendentes.addAtendentes)
+atendentesRouter.put("/:id", atendentes.atualizarAtendentes)
+atendentesRouter.delete("/:id", atendentes.deletarAtendentes)
 
 export {atendentesRouter}

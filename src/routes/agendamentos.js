@@ -2,9 +2,10 @@ import { Router } from "express";
 import agendamentos from "../controllers/agendamentos.js";
 const agendamentosRouter = Router()
 
-servicosRouter.get("/", agendamentos.buscarServicos)
-servicosRouter.get("/:id", agendamentos.buscarServicosPorId)
-servicosRouter.post("/", agendamentos.addServicosddServicos)
-servicosRouter.put("/:id", agendamentos.atualizarServicos)
+agendamentosRouter.get("/", agendamentos.buscarAgendamentos)
+agendamentosRouter.get("/:id", agendamentos.buscarAgendamentosPorId)
+agendamentosRouter.post("/", agendamentos.addAgendamentos)
+agendamentosRouter.put("/:id", agendamentos.atualizarAgendamentos)
+agendamentosRouter.delete("/:id", agendamentos.deletarAgendamento)
 
 export {agendamentosRouter}

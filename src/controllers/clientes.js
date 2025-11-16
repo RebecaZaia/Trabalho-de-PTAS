@@ -53,6 +53,29 @@ class ClientesControllers{
             })
         }
     }
+
+    deletarClientes = async (req, res) => {
+        const { id } = req.params
+        try {
+            const response = await Clientes.findByIdAndDelete(id)
+            if (response) {
+                res.json({
+                    erro: false,
+                    message: "Cliente deletado com sucesso"
+                })
+            } else {
+                res.status(404).json({
+                    erro: true,
+                    message: "Cliente não encontrado"
+                })
+            }
+        } catch (err) {
+            res.status(422).json({
+                erro: true,
+                message: "Erro ao deletar Cliente"
+            })
+        }
+    }
 }
 
 export default new ClientesControllers()

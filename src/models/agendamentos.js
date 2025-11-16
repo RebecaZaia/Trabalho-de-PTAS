@@ -1,6 +1,4 @@
-import { model, Schema } from "mongoose";
-import clientes from "../controllers/clientes";
-import atendentes from "../controllers/atendentes";
+import { Schema, model } from "mongoose";
 
 const agendamentosSchema = new Schema({
     cliente: [{type: Schema.Types.ObjectId, ref: 'Clientes'}],

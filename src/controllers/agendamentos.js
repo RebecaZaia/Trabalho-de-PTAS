@@ -39,7 +39,6 @@ class AgendamentosControllers{
 
     atualizarAgendamentos = async (req, res) =>{
         const {id} = req.params
-        const {nome, preco} = req.body
         const response = await Agendamentos.findByIdAndUpdate(id, req.body)
         if (response){
             res.json({
@@ -50,6 +49,29 @@ class AgendamentosControllers{
             res.json({
                 erro: false,
                 message: "Alteração feita"
+            })
+        }
+    }
+
+    deletarAgendamento = async (req, res) => {
+        const { id } = req.params
+        try {
+            const response = await Agendamentos.findByIdAndDelete(id)
+            if (response) {
+                res.json({
+                    erro: false,
+                    message: "Agendamento deletado com sucesso"
+                })
+            } else {
+                res.status(404).json({
+                    erro: true,
+                    message: "Agendamento não encontrado"
+                })
+            }
+        } catch (err) {
+            res.status(422).json({
+                erro: true,
+                message: "Erro ao deletar agendamento"
             })
         }
     }
